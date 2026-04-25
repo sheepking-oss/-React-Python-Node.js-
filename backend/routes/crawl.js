@@ -3,6 +3,8 @@ const crawlController = require('../controllers/crawlController');
 
 const router = express.Router();
 
+router.get('/health', crawlController.getHealthStatus);
+
 router.get('/status', crawlController.getCrawlStatus);
 
 router.get('/tasks', crawlController.getRecentCrawlTasks);
