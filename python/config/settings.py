@@ -117,3 +117,22 @@ API = {
     'default_page_size': 20,
     'max_page_size': 100
 }
+
+TASK_QUEUE = {
+    'worker_count': 4,
+    'task_timeout': 300,
+    'max_retries': 3,
+    'queue_timeout': 5.0,
+    'circuit_breaker': {
+        'failure_threshold': 5,
+        'recovery_timeout': 60,
+        'success_threshold': 3,
+    }
+}
+
+FALLBACK = {
+    'enabled': True,
+    'max_data_age_hours': 24,
+    'min_jobs_required': 10,
+    'cache_ttl_seconds': 300,
+}
