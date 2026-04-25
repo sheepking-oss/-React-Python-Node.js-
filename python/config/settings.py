@@ -55,6 +55,47 @@ DATA_PROCESSING = {
     ]
 }
 
+DEDUP_CONFIG = {
+    'thresholds': {
+        'high_confidence': 0.85,
+        'medium_confidence': 0.70,
+        'low_confidence': 0.55,
+        'exact_match': 0.95,
+    },
+    'weights': {
+        'company': 0.35,
+        'title_type': 0.25,
+        'title_keyword': 0.15,
+        'location': 0.15,
+        'salary': 0.10,
+    },
+    'company_normalization': {
+        'remove_region_prefix': True,
+        'remove_suffix': True,
+        'remove_industry_tags': True,
+        'abbreviation_enabled': True,
+    },
+    'title_normalization': {
+        'extract_level': True,
+        'extract_type': True,
+        'extract_keywords': True,
+    },
+    'salary_matching': {
+        'overlap_threshold': 0.5,
+        'tolerance_percent': 0.3,
+    },
+    'location_matching': {
+        'use_alias': True,
+        'fuzzy_match': True,
+    },
+    'deduplication_strategy': {
+        'merge_duplicates': True,
+        'keep_latest': True,
+        'merge_sources': True,
+        'log_duplicates': True,
+    }
+}
+
 ANALYSIS = {
     'wordcloud_stopwords': [
         '的', '和', '是', '在', '了', '与', '及', '或', '等', '有',
